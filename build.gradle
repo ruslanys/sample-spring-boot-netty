@@ -1,0 +1,59 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.2.21'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.2.21'
+    id 'org.jetbrains.kotlin.plugin.jpa' version '1.2.21'
+    id 'org.springframework.boot' version '1.5.10.RELEASE'
+}
+
+
+group = 'io.zensoft.inhouse'
+version = '0.1'
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenCentral()
+}
+
+ext.kotlinVersion = '1.2.21'
+ext.nettyVersion = '4.1.21.Final'
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter')
+    compile("io.netty:netty-all:${nettyVersion}")
+
+    // Kotlin
+    compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
+    compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
+    compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.4.1")
+
+    // DevTools
+    compileOnly('org.springframework.boot:spring-boot-configuration-processor')
+
+    // Tests
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+// Jar
+jar {
+    manifest {
+        attributes("Implementation-Version": version)
+    }
+}
+
+// Kotlin
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+sourceSets {
+    main.kotlin.srcDirs += 'src/main/kotlin'
+}
+noArg {
+    annotations("javax.persistence.MappedSuperclass", "javax.persistence.Entity")
+}
