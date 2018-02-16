@@ -57,7 +57,7 @@ Transfer/sec:      1.71MB
 ### Spring Reactive - Webflux
 
 ```
-Running 30s test @ http://192.168.88.104:8080/api/user/current
+Running 30s test @ http://host/api/user/current
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
     Latency    64.22ms  101.43ms   2.00s    89.74%
@@ -77,7 +77,7 @@ Transfer/sec:      1.73MB
 ### This
 
 ```
-Running 30s test @ http://192.168.88.104:8080/api/user/current
+Running 30s test @ http://host/api/user/current
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
     Latency    25.38ms   41.24ms 460.39ms   90.51%
