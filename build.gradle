@@ -6,7 +6,7 @@ plugins {
 }
 
 
-group = 'io.zensoft.inhouse'
+group = 'me.ruslanys'
 version = '0.1'
 sourceCompatibility = JavaVersion.VERSION_1_8
 
