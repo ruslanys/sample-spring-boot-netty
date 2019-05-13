@@ -26,7 +26,7 @@ class HttpServer(@Value("\${server.port:8080}") port: Int,
 
     init {
         if (port == -1) {
-            this.port = Random().nextInt(65_535)
+            this.port = 1024 + Random().nextInt(48_128)
         } else {
             this.port = port
         }
